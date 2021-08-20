@@ -24,9 +24,9 @@ import org.scalamock.context.MockContext
 
 class MockInvocationHandler(mockContext: MockContext) extends InvocationHandlerBase[MockFunction] {
 
-  protected override def handle(name: Symbol, fake: => MockFunction) =
+  protected override def handle(name: Symbol, fake: => MockFunction): Option[Any] =
     name match {
-      case Symbol("expects") => Some(fake.expectationHandler)
+      case Symbol("expects") => Some(fake.expectationHandler())
       case _ => None
     }
 

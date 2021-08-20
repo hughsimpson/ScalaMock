@@ -1,6 +1,6 @@
 package org.scalamock.specs2
 
-import org.specs2.execute.AsResult
+import org.specs2.execute.{AsResult, Result}
 import org.specs2.main.ArgumentsShortcuts
 import org.specs2.specification.AroundEach
 
@@ -47,7 +47,7 @@ import org.specs2.specification.AroundEach
 trait IsolatedMockFactory extends AroundEach with MockContextBase { self: ArgumentsShortcuts =>
   isolated
 
-  override def around[T: AsResult](body: => T) = {
+  override def around[T: AsResult](body: => T): Result = {
     wrapAsResult[T] { body }
   }
 }

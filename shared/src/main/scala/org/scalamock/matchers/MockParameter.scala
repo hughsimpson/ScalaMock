@@ -32,9 +32,9 @@ class MockParameter[T] protected (private[scalamock] val value: AnyRef, dummy: B
   def this(v: T) = this(v.asInstanceOf[AnyRef])
   def this(v: MatcherBase) = this(v.asInstanceOf[AnyRef])
 
-  override def hashCode() = value.##
+  override def hashCode(): Int = value.##
 
-  override def equals(that: Any) = value equals that
+  override def equals(that: Any): Boolean = value equals that
 
-  override def toString = value.toString
+  override def toString: String = value.toString
 }
