@@ -29,7 +29,7 @@ class Order(product: String, quantity: Int) {
     }
   }
   
-  def isFilled = filled
+  def isFilled: Boolean = filled
   
   private var filled = false
 }

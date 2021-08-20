@@ -35,13 +35,13 @@ class Controller(turtle: Turtle) {
     turtle.forward(distance(deltaPos))
   }
  
-  def delta(pos1: (Double, Double), pos2: (Double, Double)) = 
+  def delta(pos1: (Double, Double), pos2: (Double, Double)): (Double, Double) =
     (pos2._1 - pos1._1, pos2._2 - pos1._2)
  
-  def distance(delta: (Double, Double)) = 
+  def distance(delta: (Double, Double)): Double =
     sqrt(delta._1 * delta._1 + delta._2 * delta._2)
  
-  def angle(delta: (Double, Double)) = 
+  def angle(delta: (Double, Double)): Double =
     atan2(delta._2, delta._1)
  
   def moveTo(pos: (Double, Double)): Unit = {

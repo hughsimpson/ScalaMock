@@ -1,17 +1,19 @@
 import sbtcrossproject.CrossPlugin.autoImport.crossProject
 
 scalaVersion in ThisBuild := "2.11.12"
-crossScalaVersions in ThisBuild := Seq("2.11.12", "2.12.13", "2.13.6")
+crossScalaVersions in ThisBuild := Seq("2.11.12", "2.12.13", "2.13.6", "3.0.1")
 //scalaJSUseRhino in ThisBuild := true
 
 lazy val scalatest = Def.setting("org.scalatest" %%% "scalatest" % "3.2.9")
-lazy val specs2 = Def.setting("org.specs2" %%% "specs2-core" % "4.10.6")
+lazy val specs2 = Def.setting("org.specs2" %%% "specs2-core" % (if (scalaVersion.value startsWith "2.") "4.10.6" else "5.0.0-RC-03"))
 
 val commonSettings = Defaults.coreDefaultSettings ++ Seq(
   unmanagedSourceDirectories in Compile ++= {
     CrossVersion.partialVersion(scalaVersion.value) match {
-      case Some((2L, minor)) =>
-        Some(baseDirectory.value.getParentFile / s"shared/src/main/scala-2.$minor")
+      case Some((2L, _)) =>
+        Some(baseDirectory.value.getParentFile / "shared/src/main/scala-2")
+      case Some((3L, _)) =>
+        Some(baseDirectory.value.getParentFile / "shared/src/main/scala-3")
       case _ =>
         None
     }
@@ -29,10 +31,9 @@ lazy val scalamock = crossProject(JSPlatform, JVMPlatform) in file(".") settings
     scalacOptions in (Compile, doc) ++= Opts.doc.title("ScalaMock") ++
       Opts.doc.version(version.value) ++ Seq("-doc-root-content", "rootdoc.txt", "-version"),
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-reflect" % scalaVersion.value,
       scalatest.value % Optional,
       specs2.value % Optional
-    )
+    ) ++ (if (scalaVersion.value startsWith "2.") Seq("org.scala-lang" % "scala-reflect" % scalaVersion.value) else Nil)
   )
 
 lazy val `scalamock-js` = scalamock.js
