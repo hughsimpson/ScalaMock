@@ -1,6 +1,7 @@
 import sbtcrossproject.CrossPlugin.autoImport.crossProject
 
-scalaVersion in ThisBuild := "2.11.12"
+//scalaVersion in ThisBuild := "2.11.12"
+scalaVersion in ThisBuild := "3.0.1"
 crossScalaVersions in ThisBuild := Seq("2.11.12", "2.12.13", "2.13.6", "3.0.1")
 //scalaJSUseRhino in ThisBuild := true
 
@@ -18,7 +19,7 @@ val commonSettings = Defaults.coreDefaultSettings ++ Seq(
         None
     }
   },
-  scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature", "-Xcheckinit", "-target:jvm-1.8")
+  scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature", "-Xcheckinit", "-target:jvm-1.8", "-rewrite", "-source", "3.0-migration")
 )
 
 lazy val scalamock = crossProject(JSPlatform, JVMPlatform) in file(".") settings(

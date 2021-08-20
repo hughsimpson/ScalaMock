@@ -66,7 +66,7 @@ class MatchersTest extends IsolatedSpec {
   behavior of "where matcher"
 
   it can "be used to create complex predicates (one parameter)" in withExpectations {
-    (userDatabaseMock.storeUser _).expects(where { user: User => user.age > 18 && user.name.startsWith("A") }).returning("matched").twice
+    (userDatabaseMock.storeUser _).expects(where { user: User => user.age > 18 && user.name.startsWith("A") }).returning("matched").twice()
     (userDatabaseMock.storeUser _).expects(*).returning("unmatched").once
 
     userDatabaseMock.storeUser(User("Adam", 22)) shouldBe "matched"
@@ -75,7 +75,7 @@ class MatchersTest extends IsolatedSpec {
   }
 
   it can "be used to create complex predicates (two parameters)" in withExpectations {
-    (testMock.twoParams _).expects(where { (x, y) => x + y > 100 }).returning("matched").twice
+    (testMock.twoParams _).expects(where { (x, y) => x + y > 100 }).returning("matched").twice()
     (testMock.twoParams _).expects(*, *).returning("unmatched").once
 
     testMock.twoParams(99, 2.0) shouldBe "matched"

@@ -73,7 +73,7 @@ class OrderingTest extends IsolatedSpec {
       inSequence {
         intFunMock.expects(1).returning(1).repeated(3 to 7)
         intFunMock.expects(2).returning(2).once
-        intFunMock.expects(3).returning(3).twice
+        intFunMock.expects(3).returning(3).twice()
       }
     }
   }

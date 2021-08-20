@@ -58,7 +58,7 @@ class CallHandler[R: Defaultable](private[scalamock] val target: FakeFunction, p
   def throws(e: Throwable) = onCall({_ => throw e})
   def throwing(e: Throwable) = throws(e)
   
-  def onCall(handler: Product => R) = {
+  def onCall(handler: Product => R): Derived = {
     onCallHandler = handler
     this.asInstanceOf[Derived]
   }
@@ -148,8 +148,9 @@ class CallHandler1[T1, R: Defaultable](target: FakeFunction, argumentMatcher: Pr
   type Derived = CallHandler1[T1, R]
 
   def this(target: FakeFunction, v1: MockParameter[T1]) = this(target, new ArgumentMatcher(new Tuple1(v1)))
-  
-  def onCall(handler: (T1) => R): CallHandler1[T1, R] = super.onCall(new FunctionAdapter1(handler))
+
+  // TODO: error overriding method onCall in class CallHandler of type (handler: Product => R): CallHandler1.this.Derived;
+//  override def onCall(handler: Tuple1[T1] => R): CallHandler1[T1, R] = super.onCall(new FunctionAdapter1(handler))
 }
 
 class CallHandler2[T1, T2, R: Defaultable](target: FakeFunction, argumentMatcher: Product => Boolean) extends CallHandler[R](target, argumentMatcher) {

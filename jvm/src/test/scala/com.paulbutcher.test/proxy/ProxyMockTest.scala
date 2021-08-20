@@ -181,7 +181,7 @@ class ProxyMockTest extends AnyFreeSpec with MockFactory {
         val m = mock[TestTrait]
         val e = mock[m.Embedded]
         m.expects('referencesEmbedded)().returning(e)
-        assertResult(e) { m.referencesEmbedded }
+        assertResult(e) { m.referencesEmbedded() }
       }
     }
     
@@ -193,8 +193,8 @@ class ProxyMockTest extends AnyFreeSpec with MockFactory {
         val i = mock[e.ATrait]
         e.expects('innerTraitProjected)().returning(i)
         e.expects('outerTraitProjected)().returning(o)
-        assertResult(o) { e.outerTraitProjected }
-        assertResult(i) { e.innerTraitProjected }
+        assertResult(o) { e.outerTraitProjected() }
+        assertResult(i) { e.innerTraitProjected() }
       }
     }
     
@@ -206,8 +206,8 @@ class ProxyMockTest extends AnyFreeSpec with MockFactory {
         val i = mock[e.ATrait]
         e.expects('innerTrait)().returning(i)
         e.expects('outerTrait)().returning(o)
-        assertResult(o) { e.outerTrait }
-        assertResult(i) { e.innerTrait }
+        assertResult(o) { e.outerTrait() }
+        assertResult(i) { e.innerTrait() }
       }
     }
 
@@ -243,7 +243,7 @@ class ProxyMockTest extends AnyFreeSpec with MockFactory {
         val m = stub[TestTrait]
         m.twoParams(42, 1.23)
         m.twoParams(42, 1.23)
-        m.verify('twoParams)(42, 1.23).twice
+        m.verify('twoParams)(42, 1.23).twice()
       }
     }
     

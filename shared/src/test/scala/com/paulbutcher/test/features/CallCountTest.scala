@@ -47,7 +47,7 @@ class CallCountTest extends IsolatedSpec {
   }
 
   it should "fail if a method is called too often (once)" in withExpectations {
-    intFunMock.expects(42).twice
+    intFunMock.expects(42).twice()
 
     intFunMock(42)
     intFunMock(42)
@@ -57,14 +57,14 @@ class CallCountTest extends IsolatedSpec {
   it should "fail if a method isn't called often enough (twice)" in {
     intercept[ExpectationException] {
       withExpectations {
-        intFunMock.expects(42).twice
+        intFunMock.expects(42).twice()
         intFunMock(42)
       }
     }
   }
 
   it should "fail if a method is called too often (twice)" in withExpectations {
-    intFunMock.expects(42).twice
+    intFunMock.expects(42).twice()
 
     intFunMock(42)
     intFunMock(42)
