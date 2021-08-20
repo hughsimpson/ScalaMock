@@ -19,7 +19,7 @@ val commonSettings = Defaults.coreDefaultSettings ++ Seq(
         None
     }
   },
-  scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature", "-Xcheckinit", "-target:jvm-1.8", "-rewrite", "-source", "3.0-migration")
+  scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature", "-Xcheckinit", "-target:jvm-1.8")//, "-rewrite", "-source", "3.0-migration")
 )
 
 lazy val scalamock = crossProject(JSPlatform, JVMPlatform) in file(".") settings(
@@ -33,7 +33,7 @@ lazy val scalamock = crossProject(JSPlatform, JVMPlatform) in file(".") settings
       Opts.doc.version(version.value) ++ Seq("-doc-root-content", "rootdoc.txt", "-version"),
     libraryDependencies ++= Seq(
       scalatest.value % Optional,
-      specs2.value % Optional
+      specs2.value// % Optional
     ) ++ (if (scalaVersion.value startsWith "2.") Seq("org.scala-lang" % "scala-reflect" % scalaVersion.value) else Nil)
   )
 

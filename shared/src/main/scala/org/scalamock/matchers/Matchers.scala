@@ -52,112 +52,112 @@ trait Matchers { this: MockContext =>
   protected def where[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21) => Boolean) = new FunctionAdapter21(matcher)
   protected def where[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22) => Boolean) = new FunctionAdapter22(matcher)
 
-  protected def assertArgs[T1](matcher: (T1) => Unit): FunctionAdapter1[T1, Boolean] = {
+  protected def assertArgs[T1](matcher: (T1) => Any): FunctionAdapter1[T1, Boolean] = {
     val f: (T1) => Boolean = (t1) => { matcher(t1); true }
     new FunctionAdapter1[T1, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2](matcher: (T1, T2) => Unit): FunctionAdapter2[T1, T2, Boolean] = {
+  protected def assertArgs[T1, T2](matcher: (T1, T2) => Any): FunctionAdapter2[T1, T2, Boolean] = {
     val f: (T1, T2) => Boolean = (t1, t2) => { matcher(t1, t2); true }
     new FunctionAdapter2[T1, T2, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3](matcher: (T1, T2, T3) => Unit): FunctionAdapter3[T1, T2, T3, Boolean] = {
+  protected def assertArgs[T1, T2, T3](matcher: (T1, T2, T3) => Any): FunctionAdapter3[T1, T2, T3, Boolean] = {
     val f: (T1, T2, T3) => Boolean = (t1, t2, t3) => { matcher(t1, t2, t3); true }
     new FunctionAdapter3[T1, T2, T3, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4](matcher: (T1, T2, T3, T4) => Unit): FunctionAdapter4[T1, T2, T3, T4, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4](matcher: (T1, T2, T3, T4) => Any): FunctionAdapter4[T1, T2, T3, T4, Boolean] = {
     val f: (T1, T2, T3, T4) => Boolean = (t1, t2, t3, t4) => { matcher(t1, t2, t3, t4); true }
     new FunctionAdapter4[T1, T2, T3, T4, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5](matcher: (T1, T2, T3, T4, T5) => Unit): FunctionAdapter5[T1, T2, T3, T4, T5, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5](matcher: (T1, T2, T3, T4, T5) => Any): FunctionAdapter5[T1, T2, T3, T4, T5, Boolean] = {
     val f: (T1, T2, T3, T4, T5) => Boolean = (t1, t2, t3, t4, t5) => { matcher(t1, t2, t3, t4, t5); true }
     new FunctionAdapter5[T1, T2, T3, T4, T5, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6](matcher: (T1, T2, T3, T4, T5, T6) => Unit): FunctionAdapter6[T1, T2, T3, T4, T5, T6, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6](matcher: (T1, T2, T3, T4, T5, T6) => Any): FunctionAdapter6[T1, T2, T3, T4, T5, T6, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6) => Boolean = (t1, t2, t3, t4, t5, t6) => { matcher(t1, t2, t3, t4, t5, t6); true }
     new FunctionAdapter6[T1, T2, T3, T4, T5, T6, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7](matcher: (T1, T2, T3, T4, T5, T6, T7) => Unit): FunctionAdapter7[T1, T2, T3, T4, T5, T6, T7, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7](matcher: (T1, T2, T3, T4, T5, T6, T7) => Any): FunctionAdapter7[T1, T2, T3, T4, T5, T6, T7, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7) => Boolean = (t1, t2, t3, t4, t5, t6, t7) => { matcher(t1, t2, t3, t4, t5, t6, t7); true }
     new FunctionAdapter7[T1, T2, T3, T4, T5, T6, T7, Boolean](f)
   }
 
-    protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8](matcher: (T1, T2, T3, T4, T5, T6, T7, T8) => Unit): FunctionAdapter8[T1, T2, T3, T4, T5, T6, T7, T8, Boolean] = {
+    protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8](matcher: (T1, T2, T3, T4, T5, T6, T7, T8) => Any): FunctionAdapter8[T1, T2, T3, T4, T5, T6, T7, T8, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8); true }
     new FunctionAdapter8[T1, T2, T3, T4, T5, T6, T7, T8, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9) => Unit): FunctionAdapter9[T1, T2, T3, T4, T5, T6, T7, T8, T9, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9) => Any): FunctionAdapter9[T1, T2, T3, T4, T5, T6, T7, T8, T9, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9); true }
     new FunctionAdapter9[T1, T2, T3, T4, T5, T6, T7, T8, T9, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10) => Unit): FunctionAdapter10[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10) => Any): FunctionAdapter10[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10); true }
     new FunctionAdapter10[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11) => Unit): FunctionAdapter11[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11) => Any): FunctionAdapter11[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11); true }
     new FunctionAdapter11[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12) => Unit): FunctionAdapter12[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12) => Any): FunctionAdapter12[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12); true }
     new FunctionAdapter12[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13) => Unit): FunctionAdapter13[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13) => Any): FunctionAdapter13[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13); true }
     new FunctionAdapter13[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14) => Unit): FunctionAdapter14[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14) => Any): FunctionAdapter14[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14); true }
     new FunctionAdapter14[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15) => Unit): FunctionAdapter15[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15) => Any): FunctionAdapter15[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15); true }
     new FunctionAdapter15[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16) => Unit): FunctionAdapter16[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16) => Any): FunctionAdapter16[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16); true }
     new FunctionAdapter16[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17) => Unit): FunctionAdapter17[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17) => Any): FunctionAdapter17[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17); true }
     new FunctionAdapter17[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18) => Unit): FunctionAdapter18[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18) => Any): FunctionAdapter18[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18); true }
     new FunctionAdapter18[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19) => Unit): FunctionAdapter19[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19) => Any): FunctionAdapter19[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19); true }
     new FunctionAdapter19[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20) => Unit): FunctionAdapter20[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20) => Any): FunctionAdapter20[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20); true }
     new FunctionAdapter20[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21) => Unit): FunctionAdapter21[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21) => Any): FunctionAdapter21[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21); true }
     new FunctionAdapter21[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, Boolean](f)
   }
 
-  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22) => Unit): FunctionAdapter22[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, Boolean] = {
+  protected def assertArgs[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22](matcher: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22) => Any): FunctionAdapter22[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, Boolean] = {
     val f: (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22) => Boolean = (t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22) => { matcher(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22); true }
     new FunctionAdapter22[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, Boolean](f)
   }
@@ -169,18 +169,18 @@ trait Matchers { this: MockContext =>
   protected def argThat[T](predicate: T => Boolean)
     (implicit classTag: ClassTag[T]): MatcherBase = new ArgThat[T](predicate, clue = None)
 
-  protected def argAssert[T](clue: String)(assertions: T => Unit)
-    (implicit classTag: ClassTag[T]): MatcherBase = new ArgAssert[T](assertions, clue = Some(clue))
+  protected def argAssert[T](clue: String)(assertions: T => Any)
+    (implicit classTag: ClassTag[T]): MatcherBase = new ArgAssert[T](assertions(_): Unit, clue = Some(clue))
 
-  protected def argAssert[T](assertions: T => Unit)
-    (implicit classTag: ClassTag[T]): MatcherBase = new ArgAssert[T](assertions, clue = None)
+  protected def argAssert[T](assertions: T => Any)
+    (implicit classTag: ClassTag[T]): MatcherBase = new ArgAssert[T](assertions(_): Unit, clue = None)
 
   protected def capture[T](cap: Capture[T]) = new CaptureMatcher[T](cap)
 
   protected def * = new MatchAny
 
   protected class EpsilonMatcher(d: Double) {
-    def unary_~() = new MatchEpsilon(d)
+    def unary_~ = new MatchEpsilon(d)
   }
 
   protected implicit def doubleToEpsilon(d: Double): EpsilonMatcher = new EpsilonMatcher(d)

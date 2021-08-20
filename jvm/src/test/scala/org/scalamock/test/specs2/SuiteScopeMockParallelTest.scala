@@ -39,14 +39,14 @@ class SuiteScopeMockParallelTest extends Specification with IsolatedMockFactory 
       (mockWithoutExpectationsPredefined.oneParamMethod _).expects(1).returning("one")
       (mockWithoutExpectationsPredefined.oneParamMethod _).expects(2).returning("two")
 
-      mockWithoutExpectationsPredefined.oneParamMethod(1) must_== "one"
-      mockWithoutExpectationsPredefined.oneParamMethod(2) must_== "two"
+      mockWithoutExpectationsPredefined.oneParamMethod(1) must be_== ("one")
+      mockWithoutExpectationsPredefined.oneParamMethod(2) must be_== ("two")
     }
 
     "allow to use mock defined suite scope in more than one test case" in {
       (mockWithoutExpectationsPredefined.oneParamMethod _).expects(3).returning("three")
 
-      mockWithoutExpectationsPredefined.oneParamMethod(3) must_== "three"
+      mockWithoutExpectationsPredefined.oneParamMethod(3) must be_== ("three")
     }
   }
 }

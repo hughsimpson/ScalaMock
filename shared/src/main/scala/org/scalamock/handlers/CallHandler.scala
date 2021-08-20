@@ -149,8 +149,7 @@ class CallHandler1[T1, R: Defaultable](target: FakeFunction, argumentMatcher: Pr
 
   def this(target: FakeFunction, v1: MockParameter[T1]) = this(target, new ArgumentMatcher(new Tuple1(v1)))
 
-  // TODO: error overriding method onCall in class CallHandler of type (handler: Product => R): CallHandler1.this.Derived;
-//  override def onCall(handler: Tuple1[T1] => R): CallHandler1[T1, R] = super.onCall(new FunctionAdapter1(handler))
+  def onCall(handler: T1 => R)(implicit dummy: DummyImplicit): CallHandler1[T1, R] = super.onCall(new FunctionAdapter1(handler))
 }
 
 class CallHandler2[T1, T2, R: Defaultable](target: FakeFunction, argumentMatcher: Product => Boolean) extends CallHandler[R](target, argumentMatcher) {

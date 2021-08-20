@@ -50,15 +50,15 @@ class FixtureContextTest extends AnyFlatSpec with Matchers with MockFactory {
     (mockedTrait.oneParamMethod _).expects(input).returning(output)
     (mockedTrait.oneParamMethod _).expects(2).returning("two")
 
-    mockedTrait.oneParamMethod(input) shouldBe output
-    mockedTrait.oneParamMethod(2) shouldBe "two"
+    mockedTrait.oneParamMethod(input) shouldBe output;
+    mockedTrait.oneParamMethod(2) shouldBe "two";
   }
 
   it should "allow to use mock defined in fixture-context with expectations predefined" in new TestSetupWithExpectationsPredefined {
     (mockedTrait.oneParamMethod _).expects(2).returning("two")
 
-    mockedTrait.oneParamMethod(input) shouldBe output
-    mockedTrait.oneParamMethod(2) shouldBe "two"
+    mockedTrait.oneParamMethod(input) shouldBe output;
+    mockedTrait.oneParamMethod(2) shouldBe "two";
   }
 
   it should "allow mock defined in fixture-context to be used during context initialization" in new TestSetupWithHandlerCalledDuringInitialization {

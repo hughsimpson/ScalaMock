@@ -39,15 +39,15 @@ class SuiteScopePresetMockParallelTest extends Specification with IsolatedMockFa
     "allow to use mock defined suite scope with predefined expectations" in {
       (mockWithExpectationsPredefined.oneParamMethod _).expects(1).returning("one")
 
-      mockWithExpectationsPredefined.oneParamMethod(0) must_== "predefined"
-      mockWithExpectationsPredefined.oneParamMethod(1) must_== "one"
+      mockWithExpectationsPredefined.oneParamMethod(0) must be_== ("predefined")
+      mockWithExpectationsPredefined.oneParamMethod(1) must be_== ("one")
     }
 
     "keep predefined mock expectations" in {
       (mockWithExpectationsPredefined.oneParamMethod _).expects(2).returning("two")
 
-      mockWithExpectationsPredefined.oneParamMethod(0) must_== "predefined"
-      mockWithExpectationsPredefined.oneParamMethod(2) must_== "two"
+      mockWithExpectationsPredefined.oneParamMethod(0) must be_== ("predefined")
+      mockWithExpectationsPredefined.oneParamMethod(2) must be_== ("two")
     }
   }
 }

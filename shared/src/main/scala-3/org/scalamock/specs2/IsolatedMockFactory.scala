@@ -46,7 +46,7 @@ import org.specs2.specification.dsl.FragmentsDsl
  * }
  * }}}
  */
-trait IsolatedMockFactory extends AroundEach with MockContextBase with OwnExecutionEnv { self: FragmentsDsl =>
+trait IsolatedMockFactory extends AroundEach with MockContextBase { self: FragmentsDsl =>
   override def around[T: AsResult](body: => T): Result = {
     wrapAsResult[T] { body }
   }

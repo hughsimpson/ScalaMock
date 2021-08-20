@@ -24,7 +24,6 @@ import org.scalamock.function.FunctionAdapter1
 import org.scalamock.scalatest.MockFactory
 
 import scala.reflect.ClassTag
-import scala.reflect.runtime.universe.{TypeTag, typeTag}
 import scala.util.{Failure, Try}
 
 import com.paulbutcher.test._
@@ -41,7 +40,7 @@ class MockTest extends AnyFreeSpec with MockFactory with Matchers {
       withExpectations {
         val m = mock[TestTrait]
         (m.aVar_= _).expects("foo")
-        (m.aVar _).expects().returning("bar")
+        ((() => m.aVar)).expects().returning("bar")
         m.aVar = "foo"
         assertResult("bar") { m.aVar }
       }
@@ -74,7 +73,7 @@ class MockTest extends AnyFreeSpec with MockFactory with Matchers {
     "cope with nullary methods" in {
       withExpectations {
         val m = mock[TestTrait]
-        (m.nullary _).expects().returning("a return value")
+        ((() => m.nullary)).expects().returning("a return value")
         assertResult("a return value") { m.nullary }
       }
     }
@@ -221,7 +220,7 @@ class MockTest extends AnyFreeSpec with MockFactory with Matchers {
       withExpectations {
         val m = mock[TestTrait]
         (m.concreteVar_= _).expects("foo")
-        (m.concreteVar _).expects().returning("bar")
+        (() => m.concreteVar).expects().returning("bar")
         m.concreteVar = "foo"
         assertResult("bar") { m.concreteVar }
       }
@@ -342,8 +341,8 @@ class MockTest extends AnyFreeSpec with MockFactory with Matchers {
         val e = mock[m.Embedded[Double]]
         val o = mock[m.ATrait[String, Double]]
         val i = mock[e.ATrait[String, Double]]
-        (e.innerTrait() _).expects("foo", 1.23).returning(i)
-        (e.outerTrait() _).expects("bar", 4.56).returning(o)
+        (e.innerTrait _).expects("foo", 1.23).returning(i)
+        (e.outerTrait _).expects("bar", 4.56).returning(o)
         assertResult(o) { e.outerTrait("bar", 4.56) }
         assertResult(i) { e.innerTrait("foo", 1.23) }
       }

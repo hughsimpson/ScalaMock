@@ -37,15 +37,15 @@ class BasicTest extends Specification {
       (mockedTrait.oneParamMethod _).expects(1).returning("one")
       (mockedTrait.oneParamMethod _).expects(2).returning("two")
 
-      mockedTrait.oneParamMethod(1) must_== "one"
-      mockedTrait.oneParamMethod(2) must_== "two"
+      mockedTrait.oneParamMethod(1) must be_== ("one")
+      mockedTrait.oneParamMethod(2) must be_== ("two")
     }
 
     "use separate call logs for each test case" in new MockContext {
       val mockedTrait = mock[TestTrait]
       (mockedTrait.oneParamMethod _).expects(3).returning("three")
 
-      mockedTrait.oneParamMethod(3) must_== "three"
+      mockedTrait.oneParamMethod(3) must be_== ("three")
     }
   }
 }

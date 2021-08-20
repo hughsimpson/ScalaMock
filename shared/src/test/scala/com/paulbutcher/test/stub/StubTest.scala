@@ -62,7 +62,7 @@ class StubTest extends IsolatedSpec {
   it should "fail when verification fails because of parameter mismatch" in {
     demandExpectationException {
       m.twoParams(42, 1.00)
-      (m.twoParams _).verify(42, 1.23).once
+      (m.twoParams _).verify(42, 1.23).once()
     }
   }
 
@@ -70,7 +70,7 @@ class StubTest extends IsolatedSpec {
     demandExpectationException {
       m.twoParams(42, 1.23)
       m.twoParams(42, 1.23)
-      (m.twoParams _).verify(42, 1.23).once
+      (m.twoParams _).verify(42, 1.23).once()
     }
   }
   override def newInstance = new StubTest

@@ -23,6 +23,7 @@ package com.paulbutcher.test.matchers
 import org.scalamock.matchers.{MatchAny, MatchEpsilon, MockParameter}
 import org.scalatest.freespec.AnyFreeSpec
 import org.scalatest.matchers.should.Matchers
+//import org.specs2.collection.canEqualAny
 
 class MockParameterTest extends AnyFreeSpec with Matchers {
   
